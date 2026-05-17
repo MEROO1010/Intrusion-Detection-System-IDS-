@@ -1,0 +1,16 @@
+data:
+  raw_path: "data/raw/KDDTrain+.txt"
+  processed_train_x: "data/processed/train_x.pkl"
+  processed_train_y: "data/processed/train_y.pkl"
+  processed_test_x: "data/processed/test_x.pkl"
+  processed_test_y: "data/processed/test_y.pkl"
+  scaler_path: "data/processed/scaler.pkl"
+  label_encoders_path: "data/processed/label_encoders.pkl"
+
+model:
+  model_path: "src/models/ids_model.pkl"
+  n_estimators: 100
+  random_state: 42
+
+visualization:
+  output_dir: "src/visualization/"

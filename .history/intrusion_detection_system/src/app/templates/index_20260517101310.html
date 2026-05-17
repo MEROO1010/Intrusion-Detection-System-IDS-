@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intrusion Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Intrusion Detection System</h1>
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label>Duration (seconds):</label>
+                <input type="number" name="duration" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Protocol Type (0: TCP, 1: UDP, 2: ICMP):</label>
+                <input type="number" name="protocol_type" min="0" max="2" required>
+            </div>
+
+            <div class="form-group">
+                <label>Service (0-70):</label>
+                <input type="number" name="service" min="0" max="70" required>
+            </div>
+
+            <div class="form-group">
+                <label>Flag (0-11):</label>
+                <input type="number" name="flag" min="0" max="11" required>
+            </div>
+
+            <div class="form-group">
+                <label>Source Bytes:</label>
+                <input type="number" name="src_bytes" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Bytes:</label>
+                <input type="number" name="dst_bytes" required>
+            </div>
+
+            <div class="form-group">
+                <label>Land (0 or 1):</label>
+                <input type="number" name="land" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Wrong Fragment (0 or 1):</label>
+                <input type="number" name="wrong_fragment" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Urgent (0 or 1):</label>
+                <input type="number" name="urgent" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Hot (0 or 1):</label>
+                <input type="number" name="hot" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Failed Logins:</label>
+                <input type="number" name="num_failed_logins" required>
+            </div>
+
+            <div class="form-group">
+                <label>Logged In (0 or 1):</label>
+                <input type="number" name="logged_in" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Compromised:</label>
+                <input type="number" name="num_compromised" required>
+            </div>
+
+            <div class="form-group">
+                <label>Root Shell (0 or 1):</label>
+                <input type="number" name="root_shell" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>SU Attempted (0 or 1):</label>
+                <input type="number" name="su_attempted" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Root:</label>
+                <input type="number" name="num_root" required>
+            </div>
+
+            <div class="form-group">
+                <label>Number of File Creations:</label>
+                <input type="number" name="num_file_creations" required>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Shells:</label>
+                <input type="number" name="num_shells" required>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Access Files:</label>
+                <input type="number" name="num_access_files" required>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Outbound Commands:</label>
+                <input type="number" name="num_outbound_cmds" required>
+            </div>
+
+            <div class="form-group">
+                <label>Is Host Login (0 or 1):</label>
+                <input type="number" name="is_host_login" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Is Guest Login (0 or 1):</label>
+                <input type="number" name="is_guest_login" min="0" max="1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Count:</label>
+                <input type="number" name="count" required>
+            </div>
+
+            <div class="form-group">
+                <label>Server Count:</label>
+                <input type="number" name="srv_count" required>
+            </div>
+
+            <div class="form-group">
+                <label>Server Error Rate:</label>
+                <input type="number" name="serror_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Server Server Error Rate:</label>
+                <input type="number" name="srv_serror_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Remote Error Rate:</label>
+                <input type="number" name="rerror_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Server Remote Error Rate:</label>
+                <input type="number" name="srv_rerror_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Same Server Rate:</label>
+                <input type="number" name="same_srv_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Different Server Rate:</label>
+                <input type="number" name="diff_srv_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Server Different Host Rate:</label>
+                <input type="number" name="srv_diff_host_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Count:</label>
+                <input type="number" name="dst_host_count" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Server Count:</label>
+                <input type="number" name="dst_host_srv_count" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Same Server Rate:</label>
+                <input type="number" name="dst_host_same_srv_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Different Server Rate:</label>
+                <input type="number" name="dst_host_diff_srv_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Same Source Port Rate:</label>
+                <input type="number" name="dst_host_same_src_port_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Server Different Host Rate:</label>
+                <input type="number" name="dst_host_srv_diff_host_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Server Error Rate:</label>
+                <input type="number" name="dst_host_serror_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Server Server Error Rate:</label>
+                <input type="number" name="dst_host_srv_serror_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Remote Error Rate:</label>
+                <input type="number" name="dst_host_rerror_rate" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label>Destination Host Server Remote Error Rate:</label>
+                <input type="number" name="dst_host_srv_rerror_rate" step="0.01" required>
+            </div>
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result">
+                <h2>{{ prediction_text }}</h2>
+                <p>{{ probability }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

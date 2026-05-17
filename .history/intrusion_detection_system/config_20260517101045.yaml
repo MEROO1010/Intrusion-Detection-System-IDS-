@@ -1,0 +1,30 @@
+# Paths
+data:
+  raw: "data/raw/KDDTrain+.txt"
+  processed: "data/processed/processed_data.csv"
+
+models:
+  save_dir: "models/"
+  random_forest: "random_forest_model.pkl"
+  xgboost: "xgboost_model.pkl"
+  svm: "svm_model.pkl"
+  scaler: "scaler.pkl"
+
+# Model hyperparameters
+random_forest:
+  n_estimators: 100
+  random_state: 42
+
+xgboost:
+  use_label_encoder: False
+  eval_metric: "logloss"
+  random_state: 42
+
+svm:
+  kernel: "linear"
+  probability: True
+  random_state: 42
+
+# Class imbalance handling
+smote:
+  random_state: 42
