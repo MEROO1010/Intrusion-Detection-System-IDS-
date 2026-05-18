@@ -1,0 +1,5 @@
+intrusion_detection_system/data/raw/*
+intrusion_detection_system/data/processed/*
+intrusion_detection_system/models/*.pkl
+**/__pycache__/
+.history/
